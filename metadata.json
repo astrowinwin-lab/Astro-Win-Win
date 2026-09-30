@@ -1,0 +1,6 @@
+{
+  "name": "Astro Win Win - Vedic & AI Astrology",
+  "description": "Connect with verified Vedic astrologers and explore AI-powered astrological insights, transit charts, and personalized horoscopes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
