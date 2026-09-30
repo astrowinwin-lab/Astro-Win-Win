@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 interface DownloadSectionProps {
-  onOpenDownloadModal: () => void;
+  onOpenDownloadModal?: () => void;
 }
 
-export const DownloadSection: React.FC<DownloadSectionProps> = ({ onOpenDownloadModal }) => {
+export const DownloadSection: React.FC<DownloadSectionProps> = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
@@ -43,13 +43,14 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ onOpenDownload
         </p>
 
         {/* Large Primary Yellow CTA */}
-        <button
-          onClick={onOpenDownloadModal}
-          className="w-full sm:w-auto min-h-[52px] px-8 sm:px-10 py-3.5 rounded-full bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-base sm:text-lg flex items-center justify-center gap-2.5 shadow-[0_6px_28px_rgba(254,183,0,0.5)] active:scale-95 transition-all"
+        <a
+          href="#"
+          download
+          className="w-full sm:w-auto min-h-[52px] px-8 sm:px-10 py-3.5 rounded-full bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-base sm:text-lg flex items-center justify-center gap-2.5 shadow-[0_6px_28px_rgba(254,183,0,0.5)] active:scale-95 transition-all cursor-pointer"
         >
           <span className="material-symbols-outlined text-[24px]">install_mobile</span>
           <span>Download Astro Win Win</span>
-        </button>
+        </a>
 
         {/* Store Buttons */}
         <div className="flex flex-col items-center gap-2 pt-2">
@@ -58,9 +59,10 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ onOpenDownload
           </span>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenDownloadModal}
-              className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
+            <a
+              href="#"
+              download
+              className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left cursor-pointer"
             >
               <span className="material-symbols-outlined text-[22px] text-[#ffdea8]">play_arrow</span>
               <div className="flex flex-col">
@@ -71,11 +73,12 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ onOpenDownload
                   Google Play
                 </span>
               </div>
-            </button>
+            </a>
 
-            <button
-              onClick={onOpenDownloadModal}
-              className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
+            <a
+              href="#"
+              download
+              className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left cursor-pointer"
             >
               <span className="material-symbols-outlined text-[22px] text-[#ffdea8]">phone_iphone</span>
               <div className="flex flex-col">
@@ -86,7 +89,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = ({ onOpenDownload
                   App Store
                 </span>
               </div>
-            </button>
+            </a>
           </div>
 
           <button

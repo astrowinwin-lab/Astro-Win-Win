@@ -3,17 +3,15 @@ import { SUNITA_AVATAR, ROHAN_AVATAR, ZODIAC_FORECASTS, ASTROLOGERS } from '../d
 import { Astrologer } from '../types/astrology';
 
 interface HeroProps {
-  onOpenDownload: () => void;
-  onSelectAstrologer: (astrologer: Astrologer, mode: 'chat' | 'call' | 'video') => void;
+  onOpenDownload?: () => void;
+  onSelectAstrologer?: (astrologer: Astrologer, mode: 'chat' | 'call' | 'video') => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }) => {
+export const Hero: React.FC<HeroProps> = () => {
   const [selectedZodiac, setSelectedZodiac] = useState<string>('Aries');
   const [activeTab, setActiveTab] = useState<'kundali' | 'match' | 'palm'>('kundali');
 
   const currentForecast = ZODIAC_FORECASTS[selectedZodiac] || ZODIAC_FORECASTS['Aries'];
-  const sunita = ASTROLOGERS.find(a => a.id === 'sunita')!;
-  const rohan = ASTROLOGERS.find(a => a.id === 'rohan')!;
 
   return (
     <section id="hero" className="relative w-full overflow-hidden bg-gradient-to-b from-[#19052F] via-[#250d44] to-[#310D59] text-white px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-16 sm:pb-24 flex flex-col items-center">
@@ -67,13 +65,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }
 
         {/* CTA Buttons Group */}
         <div className="hero-anim flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto pt-1">
-          <button
-            onClick={onOpenDownload}
+          <a
+            href="#download"
             className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-[0_4px_22px_rgba(254,183,0,0.45)] active:scale-95 transition-all duration-200"
           >
             <span className="material-symbols-outlined text-[20px]">download</span>
             <span>Download Astro Win Win</span>
-          </button>
+          </a>
           <a
             href="#features"
             className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3 rounded-xl bg-[#efdbff]/15 hover:bg-[#efdbff]/25 border border-[#efdbff]/20 text-white font-semibold text-sm sm:text-base flex items-center justify-center transition-colors"
@@ -88,8 +86,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }
             Available on Android & iOS
           </span>
           <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenDownload}
+            <a
+              href="#download"
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
             >
               <span className="material-symbols-outlined text-[20px] text-[#ffdea8]">play_arrow</span>
@@ -101,10 +99,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }
                   Google Play
                 </span>
               </div>
-            </button>
+            </a>
 
-            <button
-              onClick={onOpenDownload}
+            <a
+              href="#download"
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
             >
               <span className="material-symbols-outlined text-[20px] text-[#ffdea8]">phone_iphone</span>
@@ -116,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }
                   App Store
                 </span>
               </div>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -302,12 +300,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }
                         <p className="text-[10px] text-[#4a4454] leading-tight">Vedic · 15 Yrs · ⭐ 5.0</p>
                       </div>
                     </div>
-                    <button
-                      onClick={() => onSelectAstrologer(sunita, 'chat')}
+                    <a
+                      href="#download"
                       className="px-2.5 py-1 rounded-lg bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] text-[11px] font-bold shadow-xs active:scale-95 transition-transform"
                     >
                       Chat ₹30
-                    </button>
+                    </a>
                   </div>
 
                   {/* Mentor 2 */}
@@ -327,12 +325,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload, onSelectAstrologer }
                         <p className="text-[10px] text-[#4a4454] leading-tight">Kundali · 12 Yrs · ⭐ 4.9</p>
                       </div>
                     </div>
-                    <button
-                      onClick={() => onSelectAstrologer(rohan, 'call')}
+                    <a
+                      href="#download"
                       className="px-2.5 py-1 rounded-lg bg-[#420094] hover:bg-[#5b20b8] text-white text-[11px] font-bold shadow-xs active:scale-95 transition-transform"
                     >
                       Call ₹25
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

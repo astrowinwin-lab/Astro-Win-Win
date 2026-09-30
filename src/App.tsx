@@ -19,20 +19,8 @@ import { AppScreensPreview } from './components/AppScreensPreview';
 import { DownloadSection } from './components/DownloadSection';
 import { Footer } from './components/Footer';
 import { BottomNav } from './components/BottomNav';
-import { ConsultationModal } from './components/ConsultationModal';
-import { WalletModal } from './components/WalletModal';
-import { DownloadModal } from './components/DownloadModal';
-import { Astrologer, ConsultationMode } from './types/astrology';
 
 export default function App() {
-  const [walletBalance, setWalletBalance] = useState<number>(250);
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState<boolean>(false);
-  const [isWalletModalOpen, setIsWalletModalOpen] = useState<boolean>(false);
-  const [activeConsultation, setActiveConsultation] = useState<{
-    astrologer: Astrologer;
-    mode: ConsultationMode;
-  } | null>(null);
-
   const [activeSection, setActiveSection] = useState<string>('hero');
   const lenisRef = useRef<Lenis | null>(null);
 
@@ -126,32 +114,15 @@ export default function App() {
     }
   };
 
-  const handleSelectAstrologer = (astrologer: Astrologer, mode: ConsultationMode) => {
-    setActiveConsultation({ astrologer, mode });
-  };
-
-  const handleDeductBalance = (amount: number) => {
-    setWalletBalance(prev => Math.max(0, prev - amount));
-  };
-
-  const handleAddFunds = (amount: number) => {
-    setWalletBalance(prev => prev + amount);
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#fff7ff] text-[#25123b] font-sans antialiased selection:bg-[#ffdea8] selection:text-[#420094]">
       {/* Fixed Top Navigation Bar */}
-      <Header
-        onOpenDownload={() => setIsDownloadModalOpen(true)}
-      />
+      <Header />
 
       {/* Main Content Area */}
       <main className="flex-1 pt-16 pb-16 md:pb-0">
         {/* 1. Hero Section */}
-        <Hero
-          onOpenDownload={() => setIsDownloadModalOpen(true)}
-          onSelectAstrologer={handleSelectAstrologer}
-        />
+        <Hero />
 
         {/* 2. Advantage Section */}
         <Advantage />
@@ -160,15 +131,10 @@ export default function App() {
         <Features />
 
         {/* 4. Consultation Experience Section */}
-        <ConsultationSection
-          onSelectAstrologer={handleSelectAstrologer}
-          onOpenDownload={() => setIsDownloadModalOpen(true)}
-        />
+        <ConsultationSection />
 
         {/* 5. AI Astrology Section */}
-        <AIAstrologySection
-          onOpenDownload={() => setIsDownloadModalOpen(true)}
-        />
+        <AIAstrologySection />
 
         {/* 6. How It Works Section */}
         <HowItWorks />
@@ -177,9 +143,7 @@ export default function App() {
         <AppScreensPreview />
 
         {/* 8. Final Download CTA Section */}
-        <DownloadSection
-          onOpenDownloadModal={() => setIsDownloadModalOpen(true)}
-        />
+        <DownloadSection />
 
         {/* 9. Footer */}
         <Footer />
@@ -189,31 +153,6 @@ export default function App() {
       <BottomNav
         activeSection={activeSection}
         onNavigate={handleNavigate}
-      />
-
-      {/* Interactive Consultation Simulation Modal */}
-      {activeConsultation && (
-        <ConsultationModal
-          astrologer={activeConsultation.astrologer}
-          mode={activeConsultation.mode}
-          onClose={() => setActiveConsultation(null)}
-          walletBalance={walletBalance}
-          onDeductBalance={handleDeductBalance}
-        />
-      )}
-
-      {/* Interactive Wallet Modal */}
-      <WalletModal
-        isOpen={isWalletModalOpen}
-        onClose={() => setIsWalletModalOpen(false)}
-        balance={walletBalance}
-        onAddFunds={handleAddFunds}
-      />
-
-      {/* Interactive Download Modal */}
-      <DownloadModal
-        isOpen={isDownloadModalOpen}
-        onClose={() => setIsDownloadModalOpen(false)}
       />
     </div>
   );

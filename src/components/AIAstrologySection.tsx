@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { PRESET_AI_QUERIES } from '../data/mockData';
 
 interface AIAstrologySectionProps {
-  onOpenDownload: () => void;
+  onOpenDownload?: () => void;
 }
 
-export const AIAstrologySection: React.FC<AIAstrologySectionProps> = ({ onOpenDownload }) => {
+export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
   const [selectedQueryIndex, setSelectedQueryIndex] = useState<number>(0);
   const [customInput, setCustomInput] = useState<string>('');
   const [isTyping, setIsTyping] = useState<boolean>(false);
@@ -211,13 +211,13 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = ({ onOpenDo
 
         {/* Explore Button */}
         <div className="flex justify-center">
-          <button
-            onClick={onOpenDownload}
+          <a
+            href="#download"
             className="min-h-[48px] px-8 py-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(254,183,0,0.4)] active:scale-95 transition-all"
           >
             <span>Explore Astro AI in App</span>
             <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>

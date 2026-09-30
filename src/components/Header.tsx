@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 interface HeaderProps {
-  onOpenDownload: () => void;
+  onOpenDownload?: () => void;
   onOpenWallet?: () => void;
   walletBalance?: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenDownload }) => {
+export const Header: React.FC<HeaderProps> = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -45,13 +45,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDownload }) => {
         {/* Action Zone */}
         <div className="flex items-center gap-2.5 sm:gap-3">
           {/* Download App CTA */}
-          <button
-            onClick={onOpenDownload}
+          <a
+            href="#download"
             className="min-h-[42px] px-4 sm:px-5 py-2 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-[0_4px_16px_rgba(255,184,0,0.35)] active:scale-95"
           >
             <span className="material-symbols-outlined text-[18px]">download</span>
             <span className="whitespace-nowrap">Download App</span>
-          </button>
+          </a>
 
           {/* Mobile hamburger toggle */}
           <button
@@ -107,16 +107,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDownload }) => {
           </a>
 
           <div className="pt-2 border-t border-[#efdbff]">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenDownload();
-              }}
+            <a
+              href="#download"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full py-2.5 rounded-xl bg-[#feb700] text-[#271900] font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm"
             >
               <span className="material-symbols-outlined text-[16px]">download</span>
               <span>Download App</span>
-            </button>
+            </a>
           </div>
         </div>
       )}

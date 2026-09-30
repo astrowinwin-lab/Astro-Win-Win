@@ -3,14 +3,11 @@ import { ASTROLOGERS } from '../data/mockData';
 import { Astrologer, ConsultationMode } from '../types/astrology';
 
 interface ConsultationSectionProps {
-  onSelectAstrologer: (astrologer: Astrologer, mode: ConsultationMode) => void;
-  onOpenDownload: () => void;
+  onSelectAstrologer?: (astrologer: Astrologer, mode: ConsultationMode) => void;
+  onOpenDownload?: () => void;
 }
 
-export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
-  onSelectAstrologer,
-  onOpenDownload
-}) => {
+export const ConsultationSection: React.FC<ConsultationSectionProps> = () => {
   const [activeMode, setActiveMode] = useState<ConsultationMode>('chat');
   const [filterSpecialty, setFilterSpecialty] = useState<string>('All');
 
@@ -173,23 +170,23 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
 
               {/* Action Buttons */}
               <div className="grid grid-cols-2 gap-3 pt-2">
-                <button
-                  onClick={() => onSelectAstrologer(astrologer, 'chat')}
+                <a
+                  href="#download"
                   className="min-h-[44px] py-2 px-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[18px]">chat</span>
                   <span>Chat Now</span>
-                </button>
+                </a>
 
-                <button
-                  onClick={() => onSelectAstrologer(astrologer, activeMode === 'video' ? 'video' : 'voice')}
+                <a
+                  href="#download"
                   className="min-h-[44px] py-2 px-3 rounded-xl bg-[#420094] hover:bg-[#5b20b8] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-xs"
                 >
                   <span className="material-symbols-outlined text-[18px]">
                     {activeMode === 'video' ? 'videocam' : 'call'}
                   </span>
                   <span>{activeMode === 'video' ? 'Video Now' : 'Call Now'}</span>
-                </button>
+                </a>
               </div>
             </div>
           ))}
@@ -197,13 +194,13 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
 
         {/* Find More CTA */}
         <div className="flex justify-center pt-2">
-          <button
-            onClick={onOpenDownload}
+          <a
+            href="#download"
             className="px-6 py-3 rounded-xl bg-[#efdbff] hover:bg-[#e9d1ff] text-[#420094] text-sm font-bold flex items-center gap-2 transition-all active:scale-95"
           >
             <span>Find an Astrologer in App</span>
             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>
