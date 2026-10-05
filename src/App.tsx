@@ -19,16 +19,57 @@ import { AppScreensPreview } from './components/AppScreensPreview';
 import { DownloadSection } from './components/DownloadSection';
 import { Footer } from './components/Footer';
 import { BottomNav } from './components/BottomNav';
+import { LegalPage } from './pages/LegalPage';
 
 export default function App() {
+  const getPageFromUrl = (): 'home' | 'privacy' | 'terms' => {
+    const hash = window.location.hash.toLowerCase();
+    const path = window.location.pathname.toLowerCase();
+    if (hash.includes('privacy') || path.includes('privacy')) return 'privacy';
+    if (hash.includes('terms') || path.includes('terms')) return 'terms';
+    return 'home';
+  };
+
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'terms'>(getPageFromUrl);
   const [activeSection, setActiveSection] = useState<string>('hero');
   const lenisRef = useRef<Lenis | null>(null);
 
-  // Initialize Lenis smooth scroll and GSAP animations
+  // Sync with browser hash changes
   useEffect(() => {
-    // Check prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const handleUrlChange = () => {
+      const page = getPageFromUrl();
+      setCurrentPage(page);
+    };
 
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, []);
+
+  const navigateTo = (page: 'home' | 'privacy' | 'terms') => {
+    setCurrentPage(page);
+    if (page === 'home') {
+      if (window.location.hash.includes('privacy') || window.location.hash.includes('terms')) {
+        window.history.pushState(null, '', window.location.pathname);
+      }
+    } else if (page === 'privacy') {
+      window.location.hash = '#/privacy-policy';
+    } else if (page === 'terms') {
+      window.location.hash = '#/terms-and-conditions';
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Initialize Lenis smooth scroll and GSAP animations on home page
+  useEffect(() => {
+    if (currentPage !== 'home') {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     gsap.registerPlugin(ScrollTrigger);
 
     let lenis: Lenis | null = null;
@@ -42,7 +83,6 @@ export default function App() {
       });
 
       lenisRef.current = lenis;
-
       lenis.on('scroll', ScrollTrigger.update);
 
       const updateTicker = (time: number) => {
@@ -77,10 +117,12 @@ export default function App() {
         lenis?.destroy();
       };
     }
-  }, []);
+  }, [currentPage]);
 
-  // Update active section on scroll
+  // Update active section on scroll (home page only)
   useEffect(() => {
+    if (currentPage !== 'home') return;
+
     const handleScroll = () => {
       const sections = ['hero', 'features', 'consultation', 'ai-astrology', 'how-it-works', 'download'];
       const scrollPos = window.scrollY + 200;
@@ -100,7 +142,7 @@ export default function App() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [currentPage]);
 
   const handleNavigate = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -113,6 +155,16 @@ export default function App() {
       }
     }
   };
+
+  if (currentPage === 'privacy' || currentPage === 'terms') {
+    return (
+      <LegalPage
+        initialTab={currentPage}
+        onNavigateHome={() => navigateTo('home')}
+        onNavigateTab={(tab) => navigateTo(tab)}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fff7ff] text-[#25123b] font-sans antialiased selection:bg-[#ffdea8] selection:text-[#420094]">
@@ -145,8 +197,8 @@ export default function App() {
         {/* 8. Final Download CTA Section */}
         <DownloadSection />
 
-        {/* 9. Footer */}
-        <Footer />
+        {/* 9. Footer with Legal Navigation Links */}
+        <Footer onNavigateLegal={(tab) => navigateTo(tab)} />
       </main>
 
       {/* Mobile Bottom Dock Bar */}
