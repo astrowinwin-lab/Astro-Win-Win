@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { APP_DOWNLOAD_URL, PLAY_STORE_URL, APP_STORE_URL } from '../data/mockData';
 
 interface DownloadSectionProps {
   onOpenDownloadModal?: () => void;
@@ -44,7 +45,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
 
         {/* Large Primary Yellow CTA */}
         <a
-          href="#"
+          href={APP_DOWNLOAD_URL}
           download
           className="w-full sm:w-auto min-h-[52px] px-8 sm:px-10 py-3.5 rounded-full bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-base sm:text-lg flex items-center justify-center gap-2.5 shadow-[0_6px_28px_rgba(254,183,0,0.5)] active:scale-95 transition-all cursor-pointer"
         >
@@ -60,7 +61,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
 
           <div className="flex items-center gap-3">
             <a
-              href="#"
+              href={PLAY_STORE_URL}
               download
               className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left cursor-pointer"
             >
@@ -76,7 +77,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
             </a>
 
             <a
-              href="#"
+              href={APP_STORE_URL}
               download
               className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left cursor-pointer"
             >

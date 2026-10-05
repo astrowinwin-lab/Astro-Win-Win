@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { APP_DOWNLOAD_URL } from '../data/mockData';
 
 interface HeaderProps {
   onOpenDownload?: () => void;
@@ -46,7 +47,7 @@ export const Header: React.FC<HeaderProps> = () => {
         <div className="flex items-center gap-2.5 sm:gap-3">
           {/* Download App CTA */}
           <a
-            href="#download"
+            href={APP_DOWNLOAD_URL}
             className="min-h-[42px] px-4 sm:px-5 py-2 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-[0_4px_16px_rgba(255,184,0,0.35)] active:scale-95"
           >
             <span className="material-symbols-outlined text-[18px]">download</span>
@@ -108,7 +109,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
           <div className="pt-2 border-t border-[#efdbff]">
             <a
-              href="#download"
+              href={APP_DOWNLOAD_URL}
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-2.5 rounded-xl bg-[#feb700] text-[#271900] font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm"
             >

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SUNITA_AVATAR, ROHAN_AVATAR, ZODIAC_FORECASTS, ASTROLOGERS } from '../data/mockData';
+import { SUNITA_AVATAR, ROHAN_AVATAR, ZODIAC_FORECASTS, ASTROLOGERS, APP_DOWNLOAD_URL, PLAY_STORE_URL, APP_STORE_URL } from '../data/mockData';
 import { Astrologer } from '../types/astrology';
 
 interface HeroProps {
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = () => {
         {/* CTA Buttons Group */}
         <div className="hero-anim flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto pt-1">
           <a
-            href="#download"
+            href={APP_DOWNLOAD_URL}
             className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-[0_4px_22px_rgba(254,183,0,0.45)] active:scale-95 transition-all duration-200"
           >
             <span className="material-symbols-outlined text-[20px]">download</span>
@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroProps> = () => {
           </span>
           <div className="flex items-center gap-3">
             <a
-              href="#download"
+              href={PLAY_STORE_URL}
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
             >
               <span className="material-symbols-outlined text-[20px] text-[#ffdea8]">play_arrow</span>
@@ -102,7 +102,7 @@ export const Hero: React.FC<HeroProps> = () => {
             </a>
 
             <a
-              href="#download"
+              href={APP_STORE_URL}
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
             >
               <span className="material-symbols-outlined text-[20px] text-[#ffdea8]">phone_iphone</span>

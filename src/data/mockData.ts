@@ -1,5 +1,10 @@
 import { Astrologer, ZodiacForecast, AppScreenModule } from '../types/astrology';
 
+// Centralized App Download URLs - change these to your direct APK, Play Store or App Store links
+export const APP_DOWNLOAD_URL = '#download';
+export const PLAY_STORE_URL = '#download';
+export const APP_STORE_URL = '#download';
+
 // Image assets hotlinked from user's provided HTML
 export const LOGO_URL = 'https://lh3.googleusercontent.com/aida/AEtjO1VZjVMJ7De0b39Pd-IFGib_xy_Qzks9KA6jcN2qRbbG_TKlrB1SoiBjLrSDTTsetJknAatuccqd4z-dxYVCtnJpAp74odl1K19-enK5R1evfTzh6xdBIjmSFOw-8yIJVlVf9-3fCpxqr0pCk1rBQldaKr3iEOqOdlgFXVdHlyA7z93NUsgxP6xezOKaUimxdJBidEYleVHZV4j5cM0wxSgr1MnSRmxA8Ti6lJEpoWdhsQ_gd5Bf7OWw7ZM';
 
