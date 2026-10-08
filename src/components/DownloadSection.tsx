@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { APP_DOWNLOAD_URL, PLAY_STORE_URL, APP_STORE_URL } from '../data/mockData';
+import { Icon } from './Icon';
 
 interface DownloadSectionProps {
   onOpenDownloadModal?: () => void;
@@ -32,7 +33,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
 
       <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center gap-6">
         <div className="w-14 h-14 rounded-2xl bg-[#feb700] text-[#271900] flex items-center justify-center shadow-xl">
-          <span className="material-symbols-outlined text-[32px]">download</span>
+          <Icon name="download" size={32} />
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight text-balance">
@@ -49,7 +50,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
           download
           className="w-full sm:w-auto min-h-[52px] px-8 sm:px-10 py-3.5 rounded-full bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-base sm:text-lg flex items-center justify-center gap-2.5 shadow-[0_6px_28px_rgba(254,183,0,0.5)] active:scale-95 transition-all cursor-pointer"
         >
-          <span className="material-symbols-outlined text-[24px]">install_mobile</span>
+          <Icon name="install_mobile" size={24} />
           <span>Download Astro Win Win</span>
         </a>
 
@@ -65,7 +66,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               download
               className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left cursor-pointer"
             >
-              <span className="material-symbols-outlined text-[22px] text-[#ffdea8]">play_arrow</span>
+              <Icon name="play_arrow" size={22} className="text-[#ffdea8]" />
               <div className="flex flex-col">
                 <span className="text-[9px] uppercase tracking-tight text-[#ebdcff] font-medium leading-none">
                   GET IT ON
@@ -81,7 +82,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               download
               className="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left cursor-pointer"
             >
-              <span className="material-symbols-outlined text-[22px] text-[#ffdea8]">phone_iphone</span>
+              <Icon name="phone_iphone" size={22} className="text-[#ffdea8]" />
               <div className="flex flex-col">
                 <span className="text-[9px] uppercase tracking-tight text-[#ebdcff] font-medium leading-none">
                   DOWNLOAD ON
@@ -95,9 +96,9 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
 
           <button
             onClick={handleCopyLink}
-            className="mt-3 text-xs text-[#ebdcff] hover:text-white flex items-center gap-1 transition-colors underline decoration-dotted"
+            className="mt-3 text-xs text-[#ebdcff] hover:text-white flex items-center gap-1 transition-colors underline decoration-dotted cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[14px]">link</span>
+            <Icon name="link" size={14} />
             <span>{copied ? 'Link Copied to Clipboard!' : 'Share Web App Link'}</span>
           </button>
         </div>

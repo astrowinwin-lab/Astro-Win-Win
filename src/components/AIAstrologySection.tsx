@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PRESET_AI_QUERIES } from '../data/mockData';
+import { Icon } from './Icon';
 
 interface AIAstrologySectionProps {
   onOpenDownload?: () => void;
@@ -60,7 +61,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
         {/* Section Header */}
         <div className="text-center flex flex-col items-center gap-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#efdbff]/15 border border-[#d3bbff]/20 text-[#ffba20] text-xs sm:text-sm font-bold shadow-inner">
-            <span className="material-symbols-outlined text-[18px]">smart_toy</span>
+            <Icon name="smart_toy" size={18} />
             <span>Next-Gen Vedic AI Engine</span>
           </div>
 
@@ -75,7 +76,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
         {/* 4 Feature Badges */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
           <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-1.5">
-            <span className="material-symbols-outlined text-[#ffba20] text-[22px]">chat</span>
+            <Icon name="chat" size={22} className="text-[#ffba20]" />
             <h3 className="text-xs sm:text-sm font-bold text-white">AI Assistant</h3>
             <p className="text-[11px] text-[#d4bbff] leading-relaxed">
               Ask any transit query and receive instant planetary insights.
@@ -83,7 +84,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
           </div>
 
           <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-1.5">
-            <span className="material-symbols-outlined text-[#ffba20] text-[22px]">today</span>
+            <Icon name="today" size={22} className="text-[#ffba20]" />
             <h3 className="text-xs sm:text-sm font-bold text-white">Daily Horoscope</h3>
             <p className="text-[11px] text-[#d4bbff] leading-relaxed">
               Unpack daily nakshatra vibrations calibrated to your exact birth time.
@@ -91,7 +92,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
           </div>
 
           <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-1.5">
-            <span className="material-symbols-outlined text-[#ffba20] text-[22px]">date_range</span>
+            <Icon name="date_range" size={22} className="text-[#ffba20]" />
             <h3 className="text-xs sm:text-sm font-bold text-white">Weekly & Monthly</h3>
             <p className="text-[11px] text-[#d4bbff] leading-relaxed">
               Plan upcoming decisions with strategic long-term house transits.
@@ -99,7 +100,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
           </div>
 
           <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-1.5">
-            <span className="material-symbols-outlined text-[#ffba20] text-[22px]">summarize</span>
+            <Icon name="summarize" size={22} className="text-[#ffba20]" />
             <h3 className="text-xs sm:text-sm font-bold text-white">Session Summary</h3>
             <p className="text-[11px] text-[#d4bbff] leading-relaxed">
               Automated AI digests summarizing remedies from completed consultations.
@@ -203,7 +204,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
               className="h-10 px-4 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-xs sm:text-sm flex items-center justify-center gap-1 transition-all active:scale-95 shadow-md flex-shrink-0"
               title="Submit Query"
             >
-              <span className="material-symbols-outlined text-[18px]">send</span>
+              <Icon name="send" size={18} />
               <span className="hidden sm:inline">Ask AI</span>
             </button>
           </form>
@@ -216,7 +217,7 @@ export const AIAstrologySection: React.FC<AIAstrologySectionProps> = () => {
             className="min-h-[48px] px-8 py-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(254,183,0,0.4)] active:scale-95 transition-all"
           >
             <span>Explore Astro AI in App</span>
-            <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+            <Icon name="arrow_forward" size={20} />
           </a>
         </div>
       </div>

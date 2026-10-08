@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { APP_MODULES } from '../data/mockData';
 import { AppScreenModule } from '../types/astrology';
+import { Icon } from './Icon';
 
 export const AppScreensPreview: React.FC = () => {
   const [activeModule, setActiveModule] = useState<AppScreenModule | null>(null);
@@ -33,7 +34,7 @@ export const AppScreensPreview: React.FC = () => {
               {/* Graphic Card */}
               <div className={`w-full h-36 rounded-xl bg-gradient-to-br ${item.gradient} p-4 text-white flex flex-col justify-between shadow-xs transition-transform group-hover:scale-[1.02]`}>
                 <div className="flex items-center justify-between">
-                  <span className="material-symbols-outlined text-[28px] opacity-90">{item.icon}</span>
+                  <Icon name={item.icon} size={28} className="opacity-90" />
                   <span className="text-[10px] uppercase font-bold tracking-wider bg-white/20 px-2 py-0.5 rounded-full">
                     {item.moduleNumber}
                   </span>
@@ -50,9 +51,7 @@ export const AppScreensPreview: React.FC = () => {
 
               <div className="pt-1 border-t border-[#f7e9ff] flex items-center justify-between text-xs font-semibold text-[#420094]">
                 <span>View Features</span>
-                <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
-                  arrow_forward
-                </span>
+                <Icon name="arrow_forward" size={16} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           ))}
@@ -71,9 +70,9 @@ export const AppScreensPreview: React.FC = () => {
                 </div>
                 <button
                   onClick={() => setActiveModule(null)}
-                  className="p-1 rounded-lg text-[#7b7485] hover:bg-[#efdbff] transition-colors"
+                  className="p-1 rounded-lg text-[#7b7485] hover:bg-[#efdbff] transition-colors cursor-pointer"
                 >
-                  <span className="material-symbols-outlined text-[20px]">close</span>
+                  <Icon name="close" size={20} />
                 </button>
               </div>
 

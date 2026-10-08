@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from './Icon';
 
 export const Advantage: React.FC = () => {
   const advantages = [
@@ -51,7 +52,7 @@ export const Advantage: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="w-12 h-12 rounded-xl bg-[#efdbff] group-hover:bg-[#420094] group-hover:text-white flex items-center justify-center text-[#420094] transition-colors shadow-xs">
-                  <span className="material-symbols-outlined text-[24px]">{item.icon}</span>
+                  <Icon name={item.icon} size={24} />
                 </div>
                 <span className="text-[11px] font-semibold text-[#420094] bg-[#eaddff] px-2 py-0.5 rounded-full">
                   {item.highlight}

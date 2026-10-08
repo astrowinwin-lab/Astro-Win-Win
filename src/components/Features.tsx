@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from './Icon';
 
 export const Features: React.FC = () => {
   const features = [
@@ -68,7 +69,7 @@ export const Features: React.FC = () => {
               className="p-5 sm:p-6 rounded-2xl bg-white border border-[#efdbff]/80 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4 sm:gap-5 hover:-translate-y-0.5 group"
             >
               <div className={`w-12 h-12 rounded-xl ${item.iconBg} flex-shrink-0 flex items-center justify-center shadow-xs transition-transform group-hover:scale-105`}>
-                <span className="material-symbols-outlined text-[24px]">{item.icon}</span>
+                <Icon name={item.icon} size={24} />
               </div>
               <div className="flex flex-col gap-1 min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2">

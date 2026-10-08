@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ASTROLOGERS } from '../data/mockData';
 import { Astrologer, ConsultationMode } from '../types/astrology';
+import { Icon } from './Icon';
 
 interface ConsultationSectionProps {
   onSelectAstrologer?: (astrologer: Astrologer, mode: ConsultationMode) => void;
@@ -127,7 +128,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = () => {
 
                     <div className="flex items-center gap-2 pt-1">
                       <span className="flex items-center gap-1 text-[#7c5800] text-xs sm:text-sm font-bold bg-[#ffdea8]/50 px-2 py-0.5 rounded-md">
-                        <span className="material-symbols-outlined text-[16px] text-[#feb700] fill-1">star</span>
+                        <Icon name="star" size={16} className="text-[#feb700]" />
                         {astrologer.rating}
                       </span>
                       <span className="text-xs text-[#7b7485]">
@@ -174,7 +175,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = () => {
                   href="#download"
                   className="min-h-[44px] py-2 px-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-xs"
                 >
-                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  <Icon name="chat" size={18} />
                   <span>Chat Now</span>
                 </a>
 
@@ -182,9 +183,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = () => {
                   href="#download"
                   className="min-h-[44px] py-2 px-3 rounded-xl bg-[#420094] hover:bg-[#5b20b8] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-xs"
                 >
-                  <span className="material-symbols-outlined text-[18px]">
-                    {activeMode === 'video' ? 'videocam' : 'call'}
-                  </span>
+                  <Icon name={activeMode === 'video' ? 'videocam' : 'call'} size={18} />
                   <span>{activeMode === 'video' ? 'Video Now' : 'Call Now'}</span>
                 </a>
               </div>
@@ -199,7 +198,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = () => {
             className="px-6 py-3 rounded-xl bg-[#efdbff] hover:bg-[#e9d1ff] text-[#420094] text-sm font-bold flex items-center gap-2 transition-all active:scale-95"
           >
             <span>Find an Astrologer in App</span>
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <Icon name="arrow_forward" size={18} />
           </a>
         </div>
       </div>
