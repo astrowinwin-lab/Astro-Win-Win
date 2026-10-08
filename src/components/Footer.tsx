@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LOGO_URL } from '../data/mockData';
+import { Icon } from './Icon';
 
 interface FooterProps {
   onNavigateLegal?: (tab: 'privacy' | 'terms') => void;
@@ -75,14 +76,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateLegal }) => {
           <div className="w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl flex flex-col gap-4 border border-[#efdbff]">
             <div className="flex items-center justify-between border-b border-[#efdbff]/80 pb-3">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#420094] text-[22px]">contact_support</span>
+                <Icon name="contact_support" size={22} className="text-[#420094]" />
                 <h3 className="text-lg font-bold text-[#25123b]">Contact Support</h3>
               </div>
               <button
                 onClick={() => setShowContactModal(false)}
                 className="p-1 rounded-lg text-[#7b7485] hover:bg-[#efdbff] cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[20px]">close</span>
+                <Icon name="close" size={20} />
               </button>
             </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { APP_DOWNLOAD_URL } from '../data/mockData';
+import { Icon } from './Icon';
 
 interface HeaderProps {
   onOpenDownload?: () => void;
@@ -50,7 +51,7 @@ export const Header: React.FC<HeaderProps> = () => {
             href={APP_DOWNLOAD_URL}
             className="min-h-[42px] px-4 sm:px-5 py-2 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-[0_4px_16px_rgba(255,184,0,0.35)] active:scale-95"
           >
-            <span className="material-symbols-outlined text-[18px]">download</span>
+            <Icon name="download" size={18} />
             <span className="whitespace-nowrap">Download App</span>
           </a>
 
@@ -60,9 +61,7 @@ export const Header: React.FC<HeaderProps> = () => {
             className="md:hidden p-2 rounded-lg text-[#4a4454] hover:bg-[#efdbff] transition-colors"
             aria-label="Toggle Navigation"
           >
-            <span className="material-symbols-outlined text-[24px]">
-              {mobileMenuOpen ? 'close' : 'menu'}
-            </span>
+            <Icon name={mobileMenuOpen ? 'close' : 'menu'} size={24} />
           </button>
         </div>
       </div>
@@ -113,7 +112,7 @@ export const Header: React.FC<HeaderProps> = () => {
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-2.5 rounded-xl bg-[#feb700] text-[#271900] font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm"
             >
-              <span className="material-symbols-outlined text-[16px]">download</span>
+              <Icon name="download" size={16} />
               <span>Download App</span>
             </a>
           </div>

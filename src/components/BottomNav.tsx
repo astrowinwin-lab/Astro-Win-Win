@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon } from './Icon';
 
 interface BottomNavProps {
   activeSection: string;
@@ -22,13 +23,11 @@ export const BottomNav: React.FC<BottomNavProps> = ({ activeSection, onNavigate 
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] transition-all ${
+              className={`flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] transition-all cursor-pointer ${
                 isActive ? 'text-[#420094] font-bold scale-105' : 'text-[#4a4454] hover:text-[#25123b]'
               }`}
             >
-              <span className={`material-symbols-outlined text-[20px] ${isActive ? 'fill-1' : ''}`}>
-                {item.icon}
-              </span>
+              <Icon name={item.icon} size={20} />
               <span className="text-[10px] tracking-tight">{item.label}</span>
             </button>
           );

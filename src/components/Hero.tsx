@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SUNITA_AVATAR, ROHAN_AVATAR, ZODIAC_FORECASTS, ASTROLOGERS, APP_DOWNLOAD_URL, PLAY_STORE_URL, APP_STORE_URL } from '../data/mockData';
 import { Astrologer } from '../types/astrology';
+import { Icon } from './Icon';
 
 interface HeroProps {
   onOpenDownload?: () => void;
@@ -69,7 +70,7 @@ export const Hero: React.FC<HeroProps> = () => {
             href={APP_DOWNLOAD_URL}
             className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3 rounded-xl bg-[#feb700] hover:bg-[#f5aa00] text-[#271900] font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-[0_4px_22px_rgba(254,183,0,0.45)] active:scale-95 transition-all duration-200"
           >
-            <span className="material-symbols-outlined text-[20px]">download</span>
+            <Icon name="download" size={20} />
             <span>Download Astro Win Win</span>
           </a>
           <a
@@ -90,7 +91,7 @@ export const Hero: React.FC<HeroProps> = () => {
               href={PLAY_STORE_URL}
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
             >
-              <span className="material-symbols-outlined text-[20px] text-[#ffdea8]">play_arrow</span>
+              <Icon name="play_arrow" size={20} className="text-[#ffdea8]" />
               <div className="flex flex-col">
                 <span className="text-[9px] uppercase tracking-tight text-[#ebdcff] font-medium leading-none">
                   GET IT ON
@@ -105,7 +106,7 @@ export const Hero: React.FC<HeroProps> = () => {
               href={APP_STORE_URL}
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white transition-all active:scale-95 text-left"
             >
-              <span className="material-symbols-outlined text-[20px] text-[#ffdea8]">phone_iphone</span>
+              <Icon name="phone_iphone" size={20} className="text-[#ffdea8]" />
               <div className="flex flex-col">
                 <span className="text-[9px] uppercase tracking-tight text-[#ebdcff] font-medium leading-none">
                   DOWNLOAD ON
@@ -339,23 +340,23 @@ export const Hero: React.FC<HeroProps> = () => {
               <div className="bg-white flex flex-col pt-1.5 pb-2 px-3 border-t border-[#efdbff]">
                 <div className="flex items-center justify-around text-[#4a4454]">
                   <div className="flex flex-col items-center text-[#420094]">
-                    <span className="material-symbols-outlined text-[18px] fill-1">home</span>
+                    <Icon name="home" size={18} />
                     <span className="text-[9px] font-bold">Home</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <span className="material-symbols-outlined text-[18px]">explore</span>
+                    <Icon name="explore" size={18} />
                     <span className="text-[9px]">Kundali</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <span className="material-symbols-outlined text-[18px]">chat</span>
+                    <Icon name="chat" size={18} />
                     <span className="text-[9px]">Chat</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <span className="material-symbols-outlined text-[18px]">call</span>
+                    <Icon name="call" size={18} />
                     <span className="text-[9px]">Call</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <span className="material-symbols-outlined text-[18px]">person</span>
+                    <Icon name="person" size={18} />
                     <span className="text-[9px]">Profile</span>
                   </div>
                 </div>

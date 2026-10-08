@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Icon } from '../components/Icon';
 
 interface LegalPageProps {
   initialTab?: 'privacy' | 'terms';
@@ -48,7 +49,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
               onClick={onNavigateHome}
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white hover:bg-[#fbf0ff] text-[#420094] border border-[#efdbff] text-xs sm:text-sm font-semibold transition-all active:scale-95 shadow-xs cursor-pointer"
             >
-              <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+              <Icon name="arrow_back" size={18} />
               <span>Back to Home</span>
             </button>
           </div>
@@ -82,7 +83,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
                   : 'text-[#4a4454] hover:text-[#25123b] hover:bg-white/40'
               }`}
             >
-              <span className="material-symbols-outlined text-[18px]">verified_user</span>
+              <Icon name="verified_user" size={18} />
               <span>Privacy Policy</span>
             </button>
             <button
@@ -93,7 +94,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
                   : 'text-[#4a4454] hover:text-[#25123b] hover:bg-white/40'
               }`}
             >
-              <span className="material-symbols-outlined text-[18px]">gavel</span>
+              <Icon name="gavel" size={18} />
               <span>Terms & Conditions</span>
             </button>
           </div>
@@ -107,7 +108,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
               {/* Header Header */}
               <div className="border-b border-[#efdbff]/80 pb-6">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fbf0ff] text-[#420094] text-xs font-semibold border border-[#d3bbff]/50 mb-3">
-                  <span className="material-symbols-outlined text-[14px]">shield</span>
+                  <Icon name="shield" size={14} />
                   Legal Compliance
                 </span>
                 <h1 className="text-2xl sm:text-4xl font-extrabold text-[#25123b] tracking-tight">
@@ -304,7 +305,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
               {/* Header */}
               <div className="border-b border-[#efdbff]/80 pb-6">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fbf0ff] text-[#420094] text-xs font-semibold border border-[#d3bbff]/50 mb-3">
-                  <span className="material-symbols-outlined text-[14px]">description</span>
+                  <Icon name="description" size={14} />
                   Agreement of Terms
                 </span>
                 <h1 className="text-2xl sm:text-4xl font-extrabold text-[#25123b] tracking-tight">
@@ -583,9 +584,9 @@ export const LegalPage: React.FC<LegalPageProps> = ({
         <div className="flex items-center justify-between mt-8 pt-6 border-t border-[#efdbff]">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-xs text-[#7b7485] hover:text-[#420094] font-semibold flex items-center gap-1 cursor-pointer"
+            className="text-xs text-[#7b7485] hover:text-[#420094] font-semibold flex items-center gap-1.5 cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[16px]">arrow_upward</span>
+            <Icon name="arrow_upward" size={16} />
             Back to top
           </button>
 
@@ -593,7 +594,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({
             onClick={onNavigateHome}
             className="px-5 py-2.5 rounded-xl bg-[#420094] hover:bg-[#5b20b8] text-white text-xs sm:text-sm font-bold flex items-center gap-2 transition-all active:scale-95 shadow-sm cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[18px]">home</span>
+            <Icon name="home" size={18} />
             Return to Astro Win Win
           </button>
         </div>
